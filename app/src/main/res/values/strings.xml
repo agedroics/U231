@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">U231</string>
+    <string name="pick">Izvēlēties</string>
+    <string name="cancel">Atcelt</string>
+    <string name="color">Krāsa</string>
+    <string name="tool">Rīks</string>
+    <string name="undo">Atsaukt</string>
+    <string name="strokeWidth">Biezums</string>
+    <string name="done">Pabeigt</string>
+    <string name="result">Rezultāts</string>
+    <string name="save">Saglabāt</string>
+    <string name="file_name_prompt">Ievadiet attēla nosaukumu</string>
+    <string name="permission_required">Nevarēja saglabāt attēlu, jo netika piešķirtas nepieciešamās tiesības</string>
+    <string name="drawing">Zīmēšana</string>
+</resources>

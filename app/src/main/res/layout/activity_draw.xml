@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView android:id="@+id/imageView"
+               android:elevation="2dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:background="@color/white"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintBottom_toTopOf="@id/toolbar"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:elevation="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <View android:id="@+id/undoButton"
+              android:layout_width="64dp"
+              android:layout_height="0dp"
+              android:foreground="?android:selectableItemBackground"
+              app:layout_constraintLeft_toLeftOf="@id/undo"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintRight_toRightOf="@id/undo"
+              app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView android:id="@+id/undo"
+                   android:elevation="4dp"
+                   android:layout_width="24dp"
+                   android:layout_height="24dp"
+                   android:layout_marginTop="8dp"
+                   android:layout_marginLeft="8dp"
+                   android:layout_marginRight="8dp"
+                   android:layout_marginBottom="4dp"
+                   android:src="@drawable/baseline_undo_white_24"
+                   android:tint="@color/textColorSecondary"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintRight_toLeftOf="@id/color"
+                   app:layout_constraintBottom_toTopOf="@id/undoLabel"/>
+
+        <TextView android:id="@+id/undoLabel"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/undo"
+                  android:textSize="12sp"
+                  android:layout_marginBottom="8dp"
+                  app:layout_constraintLeft_toLeftOf="@id/undo"
+                  app:layout_constraintTop_toBottomOf="@id/undo"
+                  app:layout_constraintRight_toRightOf="@id/undo"
+                  app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        <View android:id="@+id/colorButton"
+              android:layout_width="64dp"
+              android:layout_height="0dp"
+              android:foreground="?android:selectableItemBackground"
+              app:layout_constraintLeft_toLeftOf="@id/color"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintRight_toRightOf="@id/color"
+              app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/color"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/baseline_color_lens_white_24"
+            app:layout_constraintLeft_toRightOf="@id/undo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/strokeWidth"
+            app:layout_constraintBottom_toTopOf="@id/colorLabel"/>
+
+        <TextView android:id="@+id/colorLabel"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/color"
+                  android:textSize="12sp"
+                  android:paddingBottom="8dp"
+                  app:layout_constraintLeft_toLeftOf="@id/color"
+                  app:layout_constraintTop_toBottomOf="@id/color"
+                  app:layout_constraintRight_toRightOf="@id/color"
+                  app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        <View android:id="@+id/strokeWidthButton"
+              android:layout_width="64dp"
+              android:layout_height="0dp"
+              android:background="?android:selectableItemBackground"
+              app:layout_constraintLeft_toLeftOf="@id/strokeWidth"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintRight_toRightOf="@id/strokeWidth"
+              app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/strokeWidth"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="4dp"
+                android:textAlignment="center"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/color"
+                app:layout_constraintBottom_toTopOf="@id/strokeWidthLabel"/>
+
+        <TextView android:id="@+id/strokeWidthLabel"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/strokeWidth"
+                  android:textSize="12sp"
+                  android:paddingBottom="8dp"
+                  app:layout_constraintLeft_toLeftOf="@id/strokeWidth"
+                  app:layout_constraintTop_toBottomOf="@id/strokeWidth"
+                  app:layout_constraintRight_toRightOf="@id/strokeWidth"
+                  app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
