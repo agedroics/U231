@@ -12,10 +12,7 @@ import android.view.View
 import android.widget.PopupMenu
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_draw.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.io.ByteArrayInputStream
 import java.nio.ByteBuffer
 import java.util.zip.DeflaterInputStream
@@ -76,20 +73,18 @@ class DrawActivity : AppCompatActivity() {
             true
         }
 
+        runBlocking { prevSnapshotJob?.join() }
         if (InternalState.history.size == 1) {
             undoButton.isEnabled = false
         }
         undoButton.setOnClickListener {
-            it.isEnabled = false
-            GlobalScope.launch(Dispatchers.Main) {
-                prevSnapshotJob?.join()
-                InternalState.history.pop()
-                val inflater = InflaterInputStream(ByteArrayInputStream(InternalState.history.peek()))
-                InternalState.bitmap.copyPixelsFromBuffer(ByteBuffer.wrap(inflater.readBytes()))
-                imageView.invalidate()
-                if (InternalState.history.size > 1) {
-                    undoButton.isEnabled = true
-                }
+            runBlocking { prevSnapshotJob?.join() }
+            InternalState.history.pop()
+            val inflater = InflaterInputStream(ByteArrayInputStream(InternalState.history.peek()))
+            InternalState.bitmap.copyPixelsFromBuffer(ByteBuffer.wrap(inflater.readBytes()))
+            imageView.invalidate()
+            if (InternalState.history.size == 1) {
+                undoButton.isEnabled = false
             }
         }
 
